@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+
+<TITLE>APPLICATION FORM</TITLE>
+
+<script type="text/javascript">
+function chk(f)
+{
+	var len=f.sname.value;
+	if(len.length>20)
+		window.alert("Name length >20");
+	var nd = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+	var d=f.day.selectedIndex;
+	var m=f.month.selectedIndex;
+	if(m%4==0)
+		nd[1]=29;
+	if(nd[m]!=d)
+		window.alert("Select correct day");
+	else
+		window.alert("correct day");
+}
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#01A134>
+
+<form name=app>
+
+<center>
+APPLICATION FORM
+<BR>
+<BR>
+
+NAME:&nbsp;&nbsp;&nbsp;&nbsp; 
+<INPUT TYPE=TEXT name=sname >
+<br>
+<br><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOB:
+&nbsp;&nbsp;
+<script type="text/javascript">
+
+	document.writeln("<select name=day>");
+	for (var i=1;i<=31;i++ )
+	document.writeln("<option>" + i + "</option>");
+	document.writeln("</select>");
+
+	var mon = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+
+	document.writeln("<select name=month>");
+	for (var j=0;j<12;j++)
+	document.writeln("<option>"+mon[j]+"</option>");
+	document.writeln("</select>");
+
+	document.writeln("<select name=year>");
+	for(var k=1950;k<=2050;k++)
+	document.writeln("<option>"+k+"</option>");
+	document.writeln("</select>");
+
+</script>
+<br>
+<br>
+<br><BR>
+<input type="submit" onclick="chk(this.form)" value="apply  !!!!!!!!!!!!!!!!!!!!!!!!!!!">
+</center>
+</form>
+</BODY>
+</HTML>

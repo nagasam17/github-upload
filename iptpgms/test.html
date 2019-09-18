@@ -1,0 +1,19 @@
+<html><head>
+<title> doc</title>
+<script language=javascript>
+function chk(f)
+{
+var d = new Date();
+var h = d.getMonth();
+alert(h);
+f.hour.value=h;
+}
+</script>
+</head>
+<body>
+<form>
+<input name=hour type=text >
+<input  value=click type=button onclick="chk(this.form)">
+</form>
+</body>
+</html>

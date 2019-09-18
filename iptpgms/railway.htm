@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Railway Reservation</TITLE>
+<script type="text/javascript" >
+function clearn()
+{
+f.n.value="";
+}
+function valid()
+{
+alert("in reserve");
+var j;
+var e="";
+var flag=-1;
+j=f.n.value;
+var i;
+if(j.length!=0)
+{
+for(i=0;i<j.length;i++)
+{
+var t=j.charAt(i);
+if(!((t>='a'&& t<='z') ||(t>='A' && t<='Z')))
+{
+flag=0;
+break;
+}
+}
+if(flag==0)
+e+="Not a valid name\n";
+else
+e+="Valid name\n";
+}
+else
+{
+e+="Name field cannot be left blank\n";
+}
+if(f.a.value>40)
+e+="Age should not be greater than 40\n";
+else
+e+="Age is "+f.a.value+"\n";
+
+if(f.fr.value==f.to.value)
+e+="How can u book a ticket from "+f.fr.value+" to "+f.to.value+"\n";
+alert(e);
+var k="<br><br><br><br><br><br>Ticket is booked for<b> "+f.n.value+"</b> from "+f.fr.value+" to "+f.to.value;
+document.getElementById("print").innerHTML=k;
+}
+
+function cleara()
+{
+
+f.a.value="";
+f.a.size=3;
+}
+
+
+</script>
+</HEAD>
+<BODY bgcolor="LightCoral">
+<form name=f>
+<font color=#448811>
+<h1>Railway Reservation Form</h1>
+Name:
+ 
+ <input type=text name=n value="Enter Passenger Name" maxlength=30 onclick="clearn()"><br><br><br>
+Age:<input type=text name=a value="Age should be less than 100" maxlength=3 size=35 onclick="cleara()"><br><br><br>
+From:<select name=fr >
+<option value="Chennai">Chennai</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Tirupattur">Tirupattur</option>
+</select><br><br><br>
+To:
+<select name=to >
+<option value="Chennai">Chennai</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Tirupattur">Tirupattur</option>
+</select>
+<input type=button value="Reserve" onclick="valid()">
+</font>
+<div id="print">
+
+</div>
+	</form>
+</BODY>
+</HTML>

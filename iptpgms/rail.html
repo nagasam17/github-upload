@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Railway Reservation Form</title>
+
+<script type="text/javascript">
+function chk(f)
+{
+
+	var a = parseInt(f.age.value);
+	if(a>100)
+		{window.alert("Enter age less than 100"); }
+	if(f.pname.value.length>10)
+{		window.alert("Name size more than 100");}
+	
+	var m=f.pname.value.length;
+	for(var i=0;i<m;i++)
+	if(f.pname.value.charAt(i)>=0 && f.pname.value.charAt(i)<=9)
+	{window.alert("Name cannot contain number");
+	
+	break;
+	}
+	if(f.city1.value==f.city2.value)
+	{window.alert("Source and dest are same");}
+
+	document.writeln("<h1>Ticket booked from "+f.city1.value+" to "+f.city2.value+" for "+f.pname.value+" aged "+f.age.value);
+}
+</script>
+<head>
+<body bgcolor=#f2d123>
+<form>
+<center>
+<h1>Railway Reservation </h1>
+<br><br>
+Passenger Name: <input type=text name=pname>
+<br><br>
+Age: <input type=text name=age>
+<br><br>
+Source : <input type=text name=city1>
+<br><br>
+Destination : <input type=text name=city2>
+<br>
+<br>
+<input type=submit value=Reserve Ticket onclick="chk(this.form)">
+</form>
+</body>
+</html> 

@@ -1,0 +1,121 @@
+<html>
+<head>
+<!--
+This file retrieved from the JS-Examples archives
+http://www.js-examples.com
+1000s of free ready to use scripts, tutorials, forums.
+Author: JS-Examples - http://www.js-examples.com/ 
+-->
+
+<style>
+.spanstyle
+{
+  position    : absolute;
+  visibility  : visible;
+  top         : -50px;
+  font-size   : 12pt;
+  font-family : Verdana;
+  font-weight : bold;
+  color       : steelblue;
+}
+</STYLE>
+
+<script>
+var message="moc.selpmaxE-SJ".split("");
+var x; /* last recorded mouse X location */
+var y; /* last recorded mouse Y location */
+var step=-15; /* how much to move the characters from each other */
+var xpos=new Array(); /* X placement for each character */
+var ypos=new Array(); /* Y placement for each character */
+
+/* BROSWER SNIFFER */
+var isIE=document.all?true:false;
+var isNS=document.layers?true:false;
+var isDOM=document.getElementById?true:false;
+
+function mouseMoved(e){
+  if(isDOM)
+  {
+    if(isIE)
+    {
+      x = event.clientX;
+      y = event.clientY;
+    }
+    else
+    {
+      x = e.clientX;
+      y = e.clientY;
+    }
+  }
+  else if(isIE)
+  {
+    x = document.body.scrollLeft+event.clientX;
+    y = document.body.scrollTop+event.clientY;
+  }
+  else if(isNS)
+  {
+    x = e.pageX;
+    y = e.pageY;
+  }
+}
+
+function makesnake()
+{
+  var thisspan;
+  for (var i=message.length-1; i>=0; i--)
+  {
+    xpos[i]=xpos[i-1]+step;
+   ypos[i]=ypos[i-1];
+ }
+  xpos[0]=x+step;
+  ypos[0]=y;
+  for (var i in message)
+  {
+    if (isDOM)
+    {
+      thisspan = document.getElementById("span"+i).style;
+      thisspan.left=xpos[i];
+      thisspan.top=ypos[i];
+    }
+    else if (isIE)
+    {
+      thisspan = eval("span"+(i)+".style");
+      thisspan.posLeft=xpos[i];
+      thisspan.posTop=ypos[i];
+    }
+    else if (isDOM)
+    {
+      thisspan = eval("document.span"+i);
+      thisspan.left=xpos[i];
+      thisspan.top=ypos[i];
+    }
+  }
+}
+var timer = null;
+function startSnake()
+{
+  for (var i in message)
+  {
+    xpos[i]=-50;
+    ypos[i]=-50;
+  }
+  setTimeout('timer=setInterval("makesnake()",30);',1000);
+}
+for (var i in message)
+{
+  document.write("<span id='span"+i+"' class='spanstyle'>")
+  document.write(message[i]);
+  document.write("</span>");
+}
+
+if (isNS)
+{
+  document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = mouseMoved;
+</script>
+</head>
+<body onload="startSnake();">
+<BR><center><a href='http://www.js-examples.com'>JS-Examples.com</a></center> 
+</body>
+</html>

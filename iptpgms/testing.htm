@@ -1,0 +1,39 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"> <head>
+    <title>I st Assessment</title>
+    <script type="text/javascript">
+    function chk(f)
+    {
+    alert("Working");
+	var newcontent = "<html><head><title>Second Document</title></head>";
+	newcontent+="<body><center>"+f.txt.value+"<br><br><br>";
+	newcontent+="<input type=\"button\" onclick=\"self.close()\;\" value=\"close\"></body></html>";
+	alert(newcontent);
+	newwindow = window.open("","","status,location=no,height=275,width=375");
+	newwindow.focus();
+	newwindow.document.write(newcontent);
+	newwindow.document.close();
+	self.focus();
+	var d = new Date();
+	var h= d.getHours();
+	var m=d.getMinutes();
+	var mon = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+	var mo = d.getMonth();
+	var da= new Array("Sun","Mon","Tue","Wed","Thur","Fri","Sat");
+	var day=d.getDay();
+	document.getElementById("d1").innerHTML=mon[mo]+" "+da[day]+" "+d.getYear();
+	}
+	
+    </script>
+</head>
+<body>
+<form>
+<input type="text" name="txt" >
+<input type="button" name="b1" value="click" onclick="chk(this.form)" />
+<b>
+This document is prepared for first assessment</b>
+<div id="d1">
+</div>
+</form>
+</body>
+</html>

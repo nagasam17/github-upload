@@ -1,0 +1,50 @@
+<html>
+<script type="text/javascript">
+function chk(f)
+{
+	
+	var noofday=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+
+
+}
+</script>
+<body>
+<h1 align="center"> Find NO of Days </h1>
+<form>
+<b> Date 1:</b>
+<script type="text/javascript">
+var month=new Array("JAN","FEB","MAR","APR","MAY","JUN","JULY","AUG","SEP","OCT","NOV","DEC");
+document.writeln("<select name=day>");
+for(var i=1;i<32;i++)
+document.writeln("<option>"+i+"</option>");	
+document.writeln("</select>");
+document.writeln("<select name=Month>");
+for(var j=0;j<12;j++)
+document.writeln("<option>"+month[j]+"</option>");	
+document.writeln("</select>");
+document.writeln("<select name=year>");
+for(var z=1950;z<2050;z++)
+document.writeln("<option>"+z+"</option>");	
+document.writeln("</select>");
+document.writeln("<br>");
+document.writeln("<br>");
+document.writeln("Date 2:");
+document.writeln("<select name=day1>");
+for(var i=1;i<32;i++)
+document.writeln("<option>"+i+"</option>");	
+document.writeln("</select>");
+document.writeln("<select name=Month1>");
+for(var j=0;j<12;j++)
+document.writeln("<option>"+month[j]+"</option>");	
+document.writeln("</select>");
+document.writeln("<select name=year1>");
+for(var z=1950;z<2050;z++)
+document.writeln("<option>"+z+"</option>");	
+document.writeln("</select>");
+</script>
+<br>
+<br>
+<input type=submit value="Difference" onClick=chk(this.form)>
+</form>
+</body>
+</html>

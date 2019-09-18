@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>Phone number validation</TITLE>
+<script language="javascript">
+function chk(f)
+{
+var j;
+var e=/^\([0-2a-zA-Z]\d{2}\)\d{3}-\d{4}$/
+j=f.a.value;
+if(f.a.value.search(e)==-1)
+alert("Not a valid phone "+j);
+else
+alert("valid phone");
+}
+</script>
+</HEAD>
+<body bgcolor=#334455>
+<form >
+<input type=text name="a" ID=Text1>
+<br>
+<br>
+<input type=button name="b" value="click it..." onClick="chk(this.form);" ID=Button1>
+</form>
+</body>
+</html>

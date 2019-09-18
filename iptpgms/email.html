@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Starting doc...</title>
+<script language="javascript">
+function chk(f)
+{
+var j;
+var e=/^\w+([\.-]?\w+)*@\w+([\.]?\w+)*\.(\w{2}|\w{3})$/
+j=f.a.value;
+if(f.a.value.search(e)==-1)
+alert("not a valid e mail "+j);
+else
+alert("valid e mail "+j);
+}
+
+</script>
+</head>
+<body bgcolor=#334455>
+<form>
+<input type=text name="a">
+<br>
+<br>
+<input type=button name="b" value="click it..." onClick="chk(this.form);">
+</form>
+</body>
+</html>

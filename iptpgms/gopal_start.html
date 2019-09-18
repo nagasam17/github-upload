@@ -1,0 +1,89 @@
+
+
+<html>
+<head>
+<title>Starting doc...</title>
+<script language="javascript">
+function diff(f)
+{
+var dif1=f.d1.selectedIndex-f.d2.selectedIndex;
+if(dif1<0)
+dif1=-dif1;
+var dif2=f.y2.selectedIndex-f.y1.selectedIndex;
+if(dif2<0)
+alert("To date should be after from date");
+var mondiff = new Array(0,31,59,90,120,151,181,212,243,273,304,334);
+var dif3=mondiff[f.m2.selectedIndex]-mondiff[f.m1.selectedIndex];
+alert("mon diff is "+dif3);
+var dif4;
+dif4=dif3+dif1+(dif2*365);
+alert(dif4);
+
+}
+function vowel(f)
+{
+var tmp=f.v.value;
+var len=tmp.length;
+var t;
+var cnt=0;
+for(var z=0;z<len;z++)
+{
+t=tmp.charAt(z);
+	if(t=='a'||t=='e'||t=='i'||t=='o'||t=='u')
+	cnt=cnt+1;
+}
+alert("Vowels :"+cnt+"\nConsonants :"+(len-cnt));
+}
+</script>
+</head>
+<body bgcolor=red>
+<form>
+<marquee behavior="alternate"><font size="+4"><b><i>This is marquee</font></marquee>
+This is not marquee
+<hr>
+<input type="text" size="10" name="a" maxlength="5" >
+<br>
+<input type="button" name="b" value="click it...!?" onClick=diff(this.form);>
+<hr>
+<script language="javascript">
+document.writeln("<b>From date: </b>");
+document.writeln("<select name=d1>");
+for(var i=1;i<=31;i++)
+document.writeln("<option>"+i+"</option>");
+document.writeln("</select>");
+document.writeln("<select name=m1>");
+var mon= new Array("jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec");
+for(var j=0;j<=11;j++)
+document.writeln("<option>"+mon[j]+"</option>");
+document.writeln("</select>");
+document.writeln("<select name=y1>");
+for(var k=1900;k<=2050;k++)
+document.writeln("<option>"+k+"</option>");
+document.writeln("</select>");
+document.writeln("<br>");
+</script>
+<br>
+<script language="javascript">
+document.writeln("<b>To date:&nbsp;&nbsp;&nbsp;&nbsp; </b>");
+document.writeln("<select name=d2>");
+for(var i=1;i<=31;i++)
+document.writeln("<option>"+i+"</option>");
+document.writeln("</select>");
+document.writeln("<select name=m2>");
+var mon= new Array("jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec");
+for(var j=0;j<=11;j++)
+document.writeln("<option>"+mon[j]+"</option>");
+document.writeln("</select>");
+document.writeln("<select name=y2>");
+for(var k=1900;k<=2050;k++)
+document.writeln("<option>"+k+"</option>");
+document.writeln("</select><hr>");
+</script>
+<br>
+<input type="text"  name=v>
+<br>
+<input type="button" name=c value="vowels" onClick=vowel(this.form);>
+<hr>
+</form>
+</body>
+</html>

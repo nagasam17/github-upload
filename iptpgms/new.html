@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<STYLE>
+.spanstyle {
+    position:absolute;
+
+  
+}
+</STYLE>
+
+<script>
+var message="Sugumar".split("");
+var x;
+var y;
+var step=15;
+var xpos=new Array();
+var ypos=new Array();
+var timer = null;
+function mouseMoved(e){
+    x =  event.clientX;
+    y =  event.clientY;
+}
+var content;
+function makesnake() {
+  var thisspan;
+    for (var i=message.length-1; i>=0; i--) {
+            xpos[i]=xpos[i-1]+step;
+            ypos[i]=ypos[i-1];
+    }
+        xpos[0]=x+step;
+        ypos[0]=y;
+    
+        for (var i in message) {
+		  {
+        thisspan = eval ("span"+(i)+".style");
+        thisspan.posLeft=xpos[i];
+        thisspan.posTop=ypos[i];
+}
+content="("+x+","+y+")";
+window.status= content;
+   }
+
+}
+function startSnake() {
+  for (var i in message) {
+      xpos[i]=-50;
+      ypos[i]=-50;
+  }
+  setTimeout('timer=setInterval("makesnake()",30);',1000);
+}
+startSnake();
+for (var i in message) {
+  document.write("<span id='span"+i+"' class='spanstyle'>")
+  document.write(message[i]);
+  document.write("</span>");
+}
+
+
+document.onmousemove = mouseMoved;
+
+</script>
+
+</head>
+<body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<STYLE>
+.spanstyle {
+    position:absolute;
+    visibility:visible;
+    top:-50px;
+    font-size:12pt;
+    font-family:Verdana;
+    font-weight:bold;
+    color:steelblue;
+}
+</STYLE>
+
+<script>
+var message="Nagaraj".split("");
+var x;
+var y;
+var step=15;
+var xpos=new Array();
+var ypos=new Array();
+
+function mouseMoved(e){
+    x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX;
+    y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY;
+}
+
+function makesnake() {
+  var thisspan;
+    for (var i=message.length-1; i>=0; i--) {
+            xpos[i]=xpos[i-1]+step;
+            ypos[i]=ypos[i-1];
+    }
+        xpos[0]=x+step;
+        ypos[0]=y;
+    
+        for (var i in message) {
+		  if (document.all) {
+        thisspan = eval("span"+(i)+".style");
+        thisspan.posLeft=xpos[i];
+        thisspan.posTop=ypos[i];
+		  } else if (document.layers) {
+		thisspan = eval("document.span"+i);
+        thisspan.left=xpos[i];
+        thisspan.top=ypos[i];
+		  }
+    }
+
+}
+var timer = null;
+function startSnake() {
+  for (var i in message) {
+      xpos[i]=-50;
+      ypos[i]=-50;
+  }
+  setTimeout('timer=setInterval("makesnake()",30);',1000);
+}
+startSnake();
+for (var i in message) {
+  document.write("<span id='span"+i+"' class='spanstyle'>")
+  document.write(message[i]);
+  document.write("</span>");
+}
+
+if (document.layers) { document.captureEvents(Event.MOUSEMOVE); }
+document.onmousemove = mouseMoved;
+
+</script>
+
+</head>
+<body>
+
+</html>

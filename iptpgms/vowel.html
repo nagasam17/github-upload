@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>
+Count vowvels
+</title>
+<script type="text/javascript">
+function cnt(f)
+{
+	var txt1=f.txt.value;
+	var l=f.txt.value.length;
+	var cn=0;
+
+	for(var i=0;i<l;i++)
+	{
+		var c=txt1.charAt(i);
+		if(c=='a' ||c=='e'||c=='i'||c=='o'||c=='u')
+			cn=cn+1;
+
+	}
+		
+		window.alert("No Of Vowvel:"+cn);
+
+}
+</script>
+</head>
+<body>
+<h1>Counting Vowvels </h1>
+<br>
+<br>
+<br>
+
+<form>
+Enter Text:
+<input type=textarea name=txt size=50>
+<br>
+<input type=submit value="~~OK~~" onClick=cnt(this.form)>
+
+</form>
+</body>
+</html>
